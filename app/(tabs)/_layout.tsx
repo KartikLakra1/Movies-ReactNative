@@ -13,13 +13,13 @@ const TabIcon = ({focused , icon , title} :  any) => {
         </ImageBackground>
         )
 
-        return (
-            <View className='size-full justify-center items-center mt-4 rounded-full'>
-
-                <Image source={icon} tintColor={"#ABB5DB"} className='size-5'/>
-            </View>
-        )
     }
+
+    return (
+        <View className='size-full justify-center items-center mt-4 rounded-full'>
+            <Image source={icon}  className='size-5'/>
+        </View>
+    )
     
 }
 
