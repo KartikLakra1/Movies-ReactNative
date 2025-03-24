@@ -4,7 +4,17 @@ import { Tabs } from 'expo-router'
 import { images } from '@/constants/images'
 import { icons } from '@/constants/icons'
 
+const TabIcon = ({focused , icon , title} :  any) => {
+    return (<ImageBackground source={images.highlight} className='flex flex-row w-full flex-1 min-h-14 min-w-[100] mt-4 justify-center items-center rounded-full overflow-hidden'>
+        <Image source={icon} tintColor={"#151312"} className='size-5'/>
+         <Text className='text-secondary text-base font-semibold'>{title}</Text>                    
+    </ImageBackground>
+    )
+}
+
 const _layout = () => {
+    
+
   return (
     <Tabs>
         <Tabs.Screen 
@@ -13,14 +23,11 @@ const _layout = () => {
                 title: "Home",
                 headerShown : false,
                 tabBarIcon : ({focused})=>(
-                    <>
-                        <ImageBackground source={images.highlight} className='flex flex-row w-full flex-1 min-h-14 min-w-[112px] mt-4 justify-center items-center rounded-full overflow-hidden'>
-                            <Image source={icons.home} tintColor={"#151312"} className='size-5'/>
-                            <Text>Home</Text>
-                            
-                        </ImageBackground>
-                        
-                    </>
+                    <TabIcon 
+                        focused={focused}
+                        icon = {icons.home}
+                        title = "Home"
+                    />
                 )
             }}
         />
@@ -29,7 +36,14 @@ const _layout = () => {
             name='saved'
             options={{
                 title: "saved",
-                headerShown : false
+                headerShown : false,
+                tabBarIcon : ({focused})=>(
+                    <TabIcon 
+                    focused={focused}
+                    icon = {icons.save}
+                    title = "Saved"
+                    />
+                )
             }}
         />
 
@@ -37,7 +51,14 @@ const _layout = () => {
             name='search'
             options={{
                 title: "search",
-                headerShown : false
+                headerShown : false,
+                tabBarIcon : ({focused})=>(
+                    <TabIcon 
+                    focused={focused}
+                    icon = {icons.search}
+                    title = "Search"
+                    />
+                )
             }}
         />
 
@@ -45,7 +66,14 @@ const _layout = () => {
             name='profile'
             options={{
                 title: "profile",
-                headerShown : false
+                headerShown : false,
+                tabBarIcon : ({focused})=>(
+                    <TabIcon 
+                    focused={focused}
+                        icon = {icons.person}
+                        title = "Profile"
+                    />
+                )
             }}
         />
     </Tabs>
